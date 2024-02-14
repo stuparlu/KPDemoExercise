@@ -9,4 +9,8 @@ import Foundation
 
 struct ImageNames {
     static let KPLogo = "KPLogo"
+    static let StarEmpty = "StarEmpty"
+    static let StarFull = "StarFull"
+    static let PromoSearch = "PromoSearch"
+    static let PromoTop = "PromoTop"
 }

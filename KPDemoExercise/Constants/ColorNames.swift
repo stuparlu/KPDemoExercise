@@ -9,4 +9,8 @@ import Foundation
 
 struct ColorNames {
     static let NavBarWhite = "NavBarWhite"
+    static let BorderGrey = "BorderGrey"
+    static let FontTitleColor = "FontTitleColor"
+    static let FontSubtitleColor = "FontSubtitleColor"
+    static let SpacingGrey = "SpacingGrey"
 }

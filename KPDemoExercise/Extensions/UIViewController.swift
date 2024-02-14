@@ -10,13 +10,18 @@ import UIKit
 
 extension UIViewController {
     func loadNavigationBar() {
+        if let navBar = navigationController?.navigationBar {
+            navBar.layer.shadowColor = UIColor.black.cgColor
+            navBar.layer.shadowOffset = CGSize(width: 0, height: 2)
+            navBar.layer.shadowOpacity = 0.5
+            navBar.layer.shadowRadius = 2
+        }
         let imageView = UIImageView(image: UIImage(named: ImageNames.KPLogo))
         imageView.contentMode = .scaleAspectFit
         navigationItem.titleView = imageView
-        
-        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
-        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2)
-        navigationController?.navigationBar.layer.shadowOpacity = 0.5
-        navigationController?.navigationBar.layer.shadowRadius = 2
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        backItem.tintColor = UIColor(named: ColorNames.FontTitleColor)
+        navigationItem.backBarButtonItem = backItem
     }
 }

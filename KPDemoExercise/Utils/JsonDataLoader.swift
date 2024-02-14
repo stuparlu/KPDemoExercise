@@ -9,7 +9,7 @@ import Foundation
 
 struct JsonDataLoader {
     static func loadAdList() -> [ADList]? {
-        if let url = Bundle.main.url(forResource: "oglasi", withExtension: "json") {
+        if let url = Bundle.main.url(forResource: KeyStrings.resourceFile, withExtension: KeyStrings.json) {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
@@ -24,19 +24,20 @@ struct JsonDataLoader {
         return nil
     }
     
-    static func loadAdDescription() {
-        if let url = Bundle.main.url(forResource: "oglasi", withExtension: "json") {
+    static func loadAdDescription() -> [ADDetails] {
+        if let url = Bundle.main.url(forResource: KeyStrings.resourceFile, withExtension: KeyStrings.json) {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 let fileData = try decoder.decode(ADDetailList.self, from: data)
-                print("Done")
+                return fileData.detaljiOglasa
             } catch {
                 print("Error reading or decoding the JSON file: \(error)")
             }
         } else {
             print("Couldn't find the file in the main bundle")
         }
+        return []
     }
     
 }
