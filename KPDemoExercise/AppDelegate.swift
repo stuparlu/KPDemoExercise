@@ -12,15 +12,13 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         PersistenceManager.shared.deleteAllData()
         PersistenceManager.shared.loadDescriptionData()
         
         let navigationViewAppearance = UINavigationBarAppearance()
         navigationViewAppearance.backgroundColor = UIColor(named: ColorNames.NavBarWhite)
         UINavigationBar.appearance().standardAppearance = navigationViewAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navigationViewAppearance
-        
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationViewAppearance        
         return true
     }
     
@@ -33,4 +31,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
     }
 }
-

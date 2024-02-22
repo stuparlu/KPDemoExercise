@@ -11,7 +11,7 @@ import UIKit
 struct StyleManager {
     static func styleTitle(label: UILabel?, model: ADData) {
         label?.text = model.name
-        label?.font = UIFont(name: Fonts.PTSansRegular, size: 16)
+        label?.font = UIFont(name: Fonts.PTSansRegular, size: Fonts.defaultFontSize)
         label?.textColor = UIColor(named: ColorNames.FontTitleColor)
     }
     

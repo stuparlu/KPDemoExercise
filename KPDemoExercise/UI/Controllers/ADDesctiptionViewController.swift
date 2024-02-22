@@ -28,7 +28,6 @@ class ADDesctiptionViewController: UIViewController {
     @IBOutlet weak var adDescriptionHeightConstraint: NSLayoutConstraint?
     @IBOutlet weak var descriptionImageHeightConstraint: NSLayoutConstraint?
     
-    
     init(adData: ADData?) {
         if let adData = adData {
             let adDescription = PersistenceManager.shared.fetchDescription(withAdID: String(adData.ad_id))
@@ -62,7 +61,7 @@ class ADDesctiptionViewController: UIViewController {
                                                                                                             options: [.documentType: NSAttributedString.DocumentType.html],
                                                                                                             documentAttributes: nil) {
                 adDescriptionTextView?.attributedText = attributedString
-                let padding = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+                let padding = ViewDimensions.allSidePadding
                 adDescriptionTextView?.textContainerInset = padding
             }
             ImageDownloader.downloadImageTo(imageView: thumbnailImageView, resource: adData.photo1_tmb_300x300)
@@ -81,7 +80,7 @@ class ADDesctiptionViewController: UIViewController {
     }
     
     func setScrollHeight() {
-        var height = CGFloat(7 * 16)
+        var height = CGFloat(7 * ViewDimensions.defaultPadding)
         height += adTitleView?.frame.height ?? 0
         height += categoryView?.frame.height ?? 0
         height += adDescriptionTextView?.frame.height ?? 0

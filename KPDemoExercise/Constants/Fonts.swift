@@ -8,5 +8,7 @@
 import Foundation
 
 struct Fonts {
+    static let smallFontSize = CGFloat(12)
+    static let defaultFontSize = CGFloat(16)
     static let PTSansRegular = "PTSans-Regular"
 }

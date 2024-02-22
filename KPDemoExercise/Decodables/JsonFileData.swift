@@ -14,4 +14,3 @@ struct ADListArray: Decodable {
 struct ADDetailList: Decodable {
     let detaljiOglasa: [ADDetails]
 }
-

@@ -48,6 +48,7 @@
 		A1D316C82B7BBA94000C69D4 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D316C72B7BBA94000C69D4 /* MainListViewModel.swift */; };
 		A1F6C9012B875CD10043FF6E /* ADDesctiptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6C9002B875CD10043FF6E /* ADDesctiptionModel.swift */; };
 		A1F6C9032B875EC80043FF6E /* ADDesctiptionPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6C9022B875EC80043FF6E /* ADDesctiptionPageModel.swift */; };
+		A1F6C9052B877A6F0043FF6E /* ViewDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6C9042B877A6F0043FF6E /* ViewDimensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		A1D316C72B7BBA94000C69D4 /* MainListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModel.swift; sourceTree = "<group>"; };
 		A1F6C9002B875CD10043FF6E /* ADDesctiptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDesctiptionModel.swift; sourceTree = "<group>"; };
 		A1F6C9022B875EC80043FF6E /* ADDesctiptionPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDesctiptionPageModel.swift; sourceTree = "<group>"; };
+		A1F6C9042B877A6F0043FF6E /* ViewDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDimensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 				A1A046882B7D3EFC00D83199 /* Fonts.swift */,
 				A1A0468A2B7D417200D83199 /* DisplayStrings.swift */,
 				A1A0468C2B7D435A00D83199 /* KeyStrings.swift */,
+				A1F6C9042B877A6F0043FF6E /* ViewDimensions.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				A1D316BA2B7BB2A4000C69D4 /* ADData.swift in Sources */,
 				A1A046812B7D2DF900D83199 /* PersistenceManager.swift in Sources */,
 				A1A0468B2B7D417200D83199 /* DisplayStrings.swift in Sources */,
+				A1F6C9052B877A6F0043FF6E /* ViewDimensions.swift in Sources */,
 				A1A046872B7D3ACC00D83199 /* ImageDownloader.swift in Sources */,
 				A1A046752B7D162400D83199 /* ADDesctiptionViewController.swift in Sources */,
 				A16F55B72B7BC95C0084E06D /* ColorNames.swift in Sources */,

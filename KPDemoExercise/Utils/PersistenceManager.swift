@@ -22,7 +22,6 @@ struct PersistenceManager {
         })
     }
     
-    
     func loadDescriptionData() {
         let context = self.persistentContainer.viewContext
         let loadedData = JsonDataLoader.loadAdDescription()
@@ -65,7 +64,6 @@ struct PersistenceManager {
     }
     
     func fetchDescription(withAdID adID: String) -> AdDescription? {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = self.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<AdDescription>(entityName: EntityNames.AdDescription)
@@ -78,7 +76,7 @@ struct PersistenceManager {
             return nil
         }
     }
-        
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {

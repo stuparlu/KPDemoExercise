@@ -11,9 +11,16 @@ import UIKit
 extension UIView {
     func addTopBorder() {
         let topBorder = CALayer()
-        topBorder.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: 1.0)
+        topBorder.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: ViewDimensions.borderWidth)
         topBorder.backgroundColor = UIColor(named: ColorNames.BorderGrey)?.cgColor
         self.layer.addSublayer(topBorder)
+    }
+    
+    func addBottomBorder() {
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x: 0, y: self.frame.size.height, width: self.frame.size.width, height: ViewDimensions.borderWidth)
+        bottomBorder.backgroundColor = UIColor(named: ColorNames.BorderGrey)?.cgColor
+        self.layer.addSublayer(bottomBorder)
     }
     
     func addBorder() {

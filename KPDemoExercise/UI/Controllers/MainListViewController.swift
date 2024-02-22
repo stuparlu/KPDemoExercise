@@ -25,10 +25,9 @@ class MainListViewController: UIViewController {
         tableView?.register(UINib(nibName: ViewIdentifiers.ADTableViewCell, bundle: nil), forCellReuseIdentifier: ViewIdentifiers.ADTableViewCell)
         tableView?.dataSource = self
         tableView?.delegate = self
-        tableView?.estimatedSectionHeaderHeight = 50.0
         tableView?.sectionHeaderHeight = UITableView.automaticDimension
-        tableView?.estimatedSectionFooterHeight = 20.0
         tableView?.sectionFooterHeight = UITableView.automaticDimension
+        tableView?.addTopBorder()
     }
     
     func loadThumbnalImageFor(cell: ADTableViewCell, cellData: ADData) {
@@ -76,7 +75,7 @@ extension MainListViewController: UITableViewDataSource {
 extension MainListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        headerView.layer.borderWidth = 1.0
+        headerView.layer.borderWidth = ViewDimensions.borderWidth
         headerView.layer.borderColor = UIColor(named: ColorNames.BorderGrey)?.cgColor
         if section > 0 {
             headerView.backgroundColor = UIColor(named: ColorNames.NavBarWhite)
@@ -84,7 +83,7 @@ extension MainListViewController: UITableViewDelegate {
             titleLabel.text = "\(section + 1)\(DisplayStrings.of)\(model.totalPages)"
             titleLabel.textAlignment = .center
             titleLabel.textColor = UIColor(named: ColorNames.FontSubtitleColor)
-            titleLabel.font = UIFont(name: Fonts.PTSansRegular, size: 12)
+            titleLabel.font = UIFont(name: Fonts.PTSansRegular, size: Fonts.smallFontSize)
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             headerView.addSubview(titleLabel)
             NSLayoutConstraint.activate([
@@ -97,7 +96,7 @@ extension MainListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        section != 0  ? 38.0 : 0.0
+        section != 0  ? ViewDimensions.headerHeight : 0.0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -108,7 +107,7 @@ extension MainListViewController: UITableViewDelegate {
             titleLabel.text = DisplayStrings.KPCopyrightNotice
             titleLabel.textAlignment = .center
             titleLabel.textColor = UIColor(named: ColorNames.FontSubtitleColor)
-            titleLabel.font = UIFont(name: Fonts.PTSansRegular, size: 16)
+            titleLabel.font = UIFont(name: Fonts.PTSansRegular, size: Fonts.defaultFontSize)
             titleLabel.translatesAutoresizingMaskIntoConstraints = false
             footerView.addSubview(titleLabel)
             NSLayoutConstraint.activate([
@@ -120,7 +119,7 @@ extension MainListViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        section == model.totalPages - 1 ? 38 : 0.0
+        section == model.totalPages - 1 ? ViewDimensions.headerHeight : 0.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

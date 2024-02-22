@@ -52,7 +52,6 @@ extension ADDesctiptionPageController: UIPageViewControllerDataSource, UIPageVie
             model.adIndex -= 1
             return ADDesctiptionViewController(adData: model.adArray[model.adIndex])
         }
-        
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {

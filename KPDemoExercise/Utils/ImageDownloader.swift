@@ -31,7 +31,6 @@ struct ImageDownloader {
                 completion(nil)
                 return
             }
-            
             if let image = UIImage(data: data) {
                 completion(image)
             } else {
