@@ -8,7 +8,7 @@
 import UIKit
 
 class MainListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
     let model = MainListViewModel()
     
     // MARK: View Controller Lifecycle
@@ -22,13 +22,13 @@ class MainListViewController: UIViewController {
     // MARK: Setup Subviews
     
     func setupTableView() {
-        tableView.register(UINib(nibName: ViewIdentifiers.ADTableViewCell, bundle: nil), forCellReuseIdentifier: ViewIdentifiers.ADTableViewCell)
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.estimatedSectionHeaderHeight = 50.0
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.estimatedSectionFooterHeight = 20.0
-        tableView.sectionFooterHeight = UITableView.automaticDimension
+        tableView?.register(UINib(nibName: ViewIdentifiers.ADTableViewCell, bundle: nil), forCellReuseIdentifier: ViewIdentifiers.ADTableViewCell)
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        tableView?.estimatedSectionHeaderHeight = 50.0
+        tableView?.sectionHeaderHeight = UITableView.automaticDimension
+        tableView?.estimatedSectionFooterHeight = 20.0
+        tableView?.sectionFooterHeight = UITableView.automaticDimension
     }
     
     func loadThumbnalImageFor(cell: ADTableViewCell, cellData: ADData) {
@@ -56,7 +56,9 @@ extension MainListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ViewIdentifiers.ADTableViewCell, for: indexPath) as! ADTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewIdentifiers.ADTableViewCell, for: indexPath) as? ADTableViewCell else {
+            return UITableViewCell()
+        }
         let cellIndex = 10 * indexPath.section + indexPath.row
         let cellData = model.tableViewCellData[cellIndex]
         StyleManager.styleTitle(label: cell.titleLabel, model: cellData)

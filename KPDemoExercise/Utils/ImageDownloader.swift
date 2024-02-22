@@ -9,12 +9,15 @@ import Foundation
 import UIKit
 
 struct ImageDownloader {
-    static func downloadImageTo(imageView: UIImageView, resource: String) {
+    static func downloadImageTo(imageView: UIImageView?, resource: String) {
+        guard let imageView = imageView else {
+            return
+        }
         let url = URL(string: "\(KeyStrings.baseUrl)\(resource)")
         if let url = url {
             ImageDownloader.loadImage(from: url) { (image) in
                 DispatchQueue.main.async {
-                    if image != nil {
+                    if let image = image {
                         imageView.image = image
                     }
                 }

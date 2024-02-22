@@ -31,16 +31,17 @@ class ADDesctiptionPageController: UIViewController {
     }
     
     private func setupPageController() {
-        self.pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        self.pageController?.dataSource = self
-        self.pageController?.delegate = self
-        self.pageController?.view.backgroundColor = .clear
-        self.pageController?.view.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: self.view.frame.height)
-        self.addChild(self.pageController!)
-        self.view.addSubview(self.pageController!.view)
+        let controller = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        controller.dataSource = self
+        controller.delegate = self
+        controller.view.backgroundColor = .clear
+        controller.view.frame = CGRect(x: 0,y: 0,width: self.view.frame.width,height: self.view.frame.height)
+        self.addChild(controller)
+        self.view.addSubview(controller.view)
         let initialVC = ADDesctiptionViewController(adData: adArray[adIndex] )
-        self.pageController?.setViewControllers([initialVC], direction: .forward, animated: true)
-        self.pageController?.didMove(toParent: self)
+        controller.setViewControllers([initialVC], direction: .forward, animated: true)
+        controller.didMove(toParent: self)
+        self.pageController = controller
     }
 }
 

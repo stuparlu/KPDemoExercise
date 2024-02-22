@@ -9,20 +9,20 @@ import UIKit
 
 class ADTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var timeAndPlaceLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var favoriteImageView: UIImageView!
-    @IBOutlet weak var promotedImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var timeAndPlaceLabel: UILabel?
+    @IBOutlet weak var priceLabel: UILabel?
+    @IBOutlet weak var thumbnailImageView: UIImageView?
+    @IBOutlet weak var favoriteImageView: UIImageView?
+    @IBOutlet weak var promotedImageView: UIImageView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.addBorder()
-        titleLabel.contentMode = .topLeft
-        favoriteImageView.isUserInteractionEnabled = true
+        titleLabel?.contentMode = .topLeft
+        favoriteImageView?.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(switchImage))
-        favoriteImageView.addGestureRecognizer(tapGesture)
+        favoriteImageView?.addGestureRecognizer(tapGesture)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -30,10 +30,10 @@ class ADTableViewCell: UITableViewCell {
     }
     
     @objc func switchImage() {
-        if favoriteImageView.image == UIImage(named: ImageNames.StarEmpty) {
-            favoriteImageView.image = UIImage(named: ImageNames.StarFull)
+        if favoriteImageView?.image == UIImage(named: ImageNames.StarEmpty) {
+            favoriteImageView?.image = UIImage(named: ImageNames.StarFull)
         } else {
-            favoriteImageView.image = UIImage(named: ImageNames.StarEmpty)
+            favoriteImageView?.image = UIImage(named: ImageNames.StarEmpty)
         }
     }
 }
