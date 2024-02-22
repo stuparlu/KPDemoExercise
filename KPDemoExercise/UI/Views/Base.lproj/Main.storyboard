@@ -45,7 +45,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rWq-ai-7iV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="strelica-levo" id="zVd-ib-Azf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" backIndicatorImage="strelica-levo" backIndicatorTransitionMaskImage="strelica-levo" id="zVd-ib-Azf">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="NavBarWhite"/>

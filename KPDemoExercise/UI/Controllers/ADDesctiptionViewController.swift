@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ADDesctiptionViewController: UIViewController {
-    let adData : ADData?
+    let model : ADDesctiptionModel
     
     @IBOutlet weak var adTitleView: UIView?
     @IBOutlet weak var titleLabel: UILabel?
@@ -28,7 +28,12 @@ class ADDesctiptionViewController: UIViewController {
     
     
     init(adData: ADData?) {
-        self.adData = adData
+        if let adData = adData {
+            let adDescription = PersistenceManager.shared.fetchDescription(withAdID: String(adData.ad_id))
+            self.model = ADDesctiptionModel(adData: adData, adDescription: adDescription)
+        } else {
+            self.model = ADDesctiptionModel(adData: nil, adDescription: nil)
+        }
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,13 +49,13 @@ class ADDesctiptionViewController: UIViewController {
         adDescriptionTextView?.addBorder()
         descriptionImageView?.addBorder()
         
-        if let adData = adData, let model = PersistenceManager.shared.fetchDescription(withAdID: String(adData.ad_id)) {
+        if let adData = model.adData, let adDescription = model.adDescription {
             StyleManager.styleTitle(label: titleLabel, model: adData)
             StyleManager.styleTimeFor(label: placeLabel, model: adData)
             StyleManager.stylePriceFor(label: priceLabel, model: adData)
             StyleManager.styleImagesFor(favorites: favoriteImageView, promoted: promotedImageView, model: adData)
-            categoryLabel?.text = model.cateogry_name
-            let description = model.ad_description ?? ""
+            categoryLabel?.text = adDescription.cateogry_name
+            let description = adDescription.ad_description ?? ""
             if let data = description.data(using: .unicode), let attributedString = try? NSAttributedString(data: data,
                                                               options: [.documentType: NSAttributedString.DocumentType.html],
                                                               documentAttributes: nil) {
@@ -59,7 +64,7 @@ class ADDesctiptionViewController: UIViewController {
                 adDescriptionTextView?.textContainerInset = padding
             }
             ImageDownloader.downloadImageTo(imageView: thumbnailImageView, resource: adData.photo1_tmb_300x300)
-            if let resourceLink = model.photos {
+            if let resourceLink = adDescription.photos {
                 ImageDownloader.downloadImageTo(imageView: descriptionImageView, resource: resourceLink)
             }
         } else {

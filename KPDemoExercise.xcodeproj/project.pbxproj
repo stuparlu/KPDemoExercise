@@ -46,6 +46,8 @@
 		A1D316C42B7BB79F000C69D4 /* AdDescription+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D316C22B7BB79F000C69D4 /* AdDescription+CoreDataClass.swift */; };
 		A1D316C52B7BB79F000C69D4 /* AdDescription+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D316C32B7BB79F000C69D4 /* AdDescription+CoreDataProperties.swift */; };
 		A1D316C82B7BBA94000C69D4 /* MainListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D316C72B7BBA94000C69D4 /* MainListViewModel.swift */; };
+		A1F6C9012B875CD10043FF6E /* ADDesctiptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6C9002B875CD10043FF6E /* ADDesctiptionModel.swift */; };
+		A1F6C9032B875EC80043FF6E /* ADDesctiptionPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F6C9022B875EC80043FF6E /* ADDesctiptionPageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +92,8 @@
 		A1D316C22B7BB79F000C69D4 /* AdDescription+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdDescription+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A1D316C32B7BB79F000C69D4 /* AdDescription+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdDescription+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A1D316C72B7BBA94000C69D4 /* MainListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewModel.swift; sourceTree = "<group>"; };
+		A1F6C9002B875CD10043FF6E /* ADDesctiptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDesctiptionModel.swift; sourceTree = "<group>"; };
+		A1F6C9022B875EC80043FF6E /* ADDesctiptionPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADDesctiptionPageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				A1D316C72B7BBA94000C69D4 /* MainListViewModel.swift */,
+				A1F6C9002B875CD10043FF6E /* ADDesctiptionModel.swift */,
+				A1F6C9022B875EC80043FF6E /* ADDesctiptionPageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				A1A046832B7D329300D83199 /* DateUtils.swift in Sources */,
 				A1D316702B7B73DF000C69D4 /* MainListViewController.swift in Sources */,
 				A1A0468D2B7D435A00D83199 /* KeyStrings.swift in Sources */,
+				A1F6C9012B875CD10043FF6E /* ADDesctiptionModel.swift in Sources */,
 				A1D316B42B7BB21A000C69D4 /* JsonFileData.swift in Sources */,
 				A16F55B32B7BC4E50084E06D /* ImageNames.swift in Sources */,
 				A1D316B12B7BAF96000C69D4 /* JsonDataLoader.swift in Sources */,
@@ -364,6 +371,7 @@
 				A1D316B62B7BB24F000C69D4 /* ADDetails.swift in Sources */,
 				A1A046852B7D33E000D83199 /* StyleManager.swift in Sources */,
 				A1D316C52B7BB79F000C69D4 /* AdDescription+CoreDataProperties.swift in Sources */,
+				A1F6C9032B875EC80043FF6E /* ADDesctiptionPageModel.swift in Sources */,
 				A1D3166E2B7B73DF000C69D4 /* SceneDelegate.swift in Sources */,
 				A1D316762B7B73DF000C69D4 /* KPDemoExercise.xcdatamodeld in Sources */,
 				A1D316B82B7BB277000C69D4 /* ADList.swift in Sources */,

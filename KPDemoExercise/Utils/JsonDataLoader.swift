@@ -29,8 +29,7 @@ struct JsonDataLoader {
             do {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
-                let fileData = try decoder.decode(ADDetailList.self, from: data)
-                return fileData.detaljiOglasa
+                return (try decoder.decode(ADDetailList.self, from: data)).detaljiOglasa
             } catch {
                 print("Error reading or decoding the JSON file: \(error)")
             }
