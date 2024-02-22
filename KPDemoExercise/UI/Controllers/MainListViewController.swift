@@ -127,6 +127,5 @@ extension MainListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let newVC = ADDesctiptionPageController(adArray: model.tableViewCellData, adIndex:  10 * indexPath.section + indexPath.row)
         self.navigationController?.pushViewController(newVC, animated: true)
-        
     }
 }

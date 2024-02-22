@@ -11,6 +11,8 @@ import UIKit
 class ADDesctiptionViewController: UIViewController {
     let model : ADDesctiptionModel
     
+    @IBOutlet weak var scrollView: UIScrollView?
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint?
     @IBOutlet weak var adTitleView: UIView?
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var placeLabel: UILabel?
@@ -48,7 +50,7 @@ class ADDesctiptionViewController: UIViewController {
         categoryView?.addBorder()
         adDescriptionTextView?.addBorder()
         descriptionImageView?.addBorder()
-        
+        setScrollHeight()
         if let adData = model.adData, let adDescription = model.adDescription {
             StyleManager.styleTitle(label: titleLabel, model: adData)
             StyleManager.styleTimeFor(label: placeLabel, model: adData)
@@ -57,8 +59,8 @@ class ADDesctiptionViewController: UIViewController {
             categoryLabel?.text = adDescription.cateogry_name
             let description = adDescription.ad_description ?? ""
             if let data = description.data(using: .unicode), let attributedString = try? NSAttributedString(data: data,
-                                                              options: [.documentType: NSAttributedString.DocumentType.html],
-                                                              documentAttributes: nil) {
+                                                                                                            options: [.documentType: NSAttributedString.DocumentType.html],
+                                                                                                            documentAttributes: nil) {
                 adDescriptionTextView?.attributedText = attributedString
                 let padding = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
                 adDescriptionTextView?.textContainerInset = padding
@@ -76,5 +78,14 @@ class ADDesctiptionViewController: UIViewController {
             adDescriptionHeightConstraint?.constant = 0.0
             descriptionImageHeightConstraint?.constant = 0.0
         }
+    }
+    
+    func setScrollHeight() {
+        var height = CGFloat(7 * 16)
+        height += adTitleView?.frame.height ?? 0
+        height += categoryView?.frame.height ?? 0
+        height += adDescriptionTextView?.frame.height ?? 0
+        height += descriptionImageView?.frame.height ?? 0
+        scrollViewHeight?.constant = height
     }
 }

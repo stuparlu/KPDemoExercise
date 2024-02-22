@@ -166,9 +166,9 @@
 		A1D3169C2B7B9405000C69D4 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				A1D316CC2B7BC350000C69D4 /* Controllers */,
-				A1D316CB2B7BC33C000C69D4 /* Views */,
 				A1D316C62B7BBA69000C69D4 /* Models */,
+				A1D316CB2B7BC33C000C69D4 /* Views */,
+				A1D316CC2B7BC350000C69D4 /* Controllers */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -215,9 +215,9 @@
 		A1D316CB2B7BC33C000C69D4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1D316AD2B7BAEF8000C69D4 /* ADTableViewCell */,
 				A1D316712B7B73DF000C69D4 /* Main.storyboard */,
 				A1D316792B7B73E1000C69D4 /* LaunchScreen.storyboard */,
-				A1D316AD2B7BAEF8000C69D4 /* ADTableViewCell */,
 				A1A0467A2B7D180600D83199 /* ADDesctiptionViewController.xib */,
 			);
 			path = Views;
