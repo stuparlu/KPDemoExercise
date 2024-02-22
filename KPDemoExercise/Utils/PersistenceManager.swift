@@ -10,9 +10,21 @@ import UIKit
 import CoreData
 
 struct PersistenceManager {
-    static func loadDescriptionData() {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = appDelegate!.persistentContainer.viewContext
+    static let shared = PersistenceManager()
+    var persistentContainer: NSPersistentContainer
+    
+    private init() {
+        self.persistentContainer = NSPersistentContainer(name: "KPDemoExercise")
+        self.persistentContainer.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+    }
+    
+    
+    func loadDescriptionData() {
+        let context = self.persistentContainer.viewContext
         let loadedData = JsonDataLoader.loadAdDescription()
         for item in loadedData {
             let description = AdDescription(context: context)
@@ -23,12 +35,11 @@ struct PersistenceManager {
             description.ad_description = item.description
             description.photos = item.photos
         }
-        appDelegate!.saveContext()
+        self.saveContext()
     }
     
-    static func deleteAllData() {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = appDelegate!.persistentContainer.viewContext
+    func deleteAllData() {
+        let context = self.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityNames.AdDescription)
         do {
             let entities = try context.fetch(fetchRequest)
@@ -41,9 +52,8 @@ struct PersistenceManager {
         }
     }
     
-    static func fetchAllDetails() -> [AdDescription]? {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = appDelegate!.persistentContainer.viewContext
+    func fetchAllDetails() -> [AdDescription]? {
+        let context = self.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<AdDescription>(entityName: EntityNames.AdDescription)
         do {
             let entities = try context.fetch(fetchRequest)
@@ -54,9 +64,9 @@ struct PersistenceManager {
         }
     }
     
-    static func fetchDescription(withAdID adID: String) -> AdDescription? {
+    func fetchDescription(withAdID adID: String) -> AdDescription? {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = appDelegate!.persistentContainer.viewContext
+        let context = self.persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<AdDescription>(entityName: EntityNames.AdDescription)
         fetchRequest.predicate = NSPredicate(format: "ad_id == %@", adID)
@@ -66,6 +76,18 @@ struct PersistenceManager {
         } catch {
             print("Error fetching item: \(error.localizedDescription)")
             return nil
+        }
+    }
+        
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
     }
 }

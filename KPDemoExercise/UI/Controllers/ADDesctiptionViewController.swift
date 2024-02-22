@@ -44,7 +44,7 @@ class ADDesctiptionViewController: UIViewController {
         adDescriptionTextView.addBorder()
         descriptionImageView.addBorder()
         
-        if let adData = adData, let model = PersistenceManager.fetchDescription(withAdID: String(adData.ad_id)) {
+        if let adData = adData, let model = PersistenceManager.shared.fetchDescription(withAdID: String(adData.ad_id)) {
             StyleManager.styleTitle(label: titleLabel, model: adData)
             StyleManager.styleTimeFor(label: placeLabel, model: adData)
             StyleManager.stylePriceFor(label: priceLabel, model: adData)
